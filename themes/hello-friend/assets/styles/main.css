@@ -65,9 +65,9 @@
   --fs-base: 1rem;
   --fs-md:   1.0625rem;
   --fs-lg:   1.25rem;
-  --fs-xl:   clamp(1.5rem, 1.3rem + 0.9vw, 1.875rem);
-  --fs-2xl:  clamp(1.875rem, 1.5rem + 1.6vw, 2.5rem);
-  --fs-3xl:  clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem);
+  --fs-xl:   clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
+  --fs-2xl:  clamp(1.5rem, 1.3rem + 0.9vw, 1.875rem);
+  --fs-3xl:  clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
 
   /* Spatial scale (8px grid) */
   --sp-1:  0.25rem; --sp-2: 0.5rem;  --sp-3: 0.75rem;
@@ -571,7 +571,7 @@ th {
    Post detail
    ---------------------------------------------------------------- */
 .post .post-title {
-  font-size: var(--fs-3xl);
+  font-size: var(--fs-2xl);
   margin: 0 0 var(--sp-4);
 }
 .post .post-title a {
@@ -598,6 +598,20 @@ th {
 .post .post-info .meta-icon { margin-right: var(--sp-1); }
 .post .post-cover { margin: var(--sp-8) 0; }
 .post .post-cover img { width: 100%; border-radius: var(--r-md); }
+
+/* About / 静态页面的 feature 图渲染成圆形头像 */
+.post .post-cover--avatar {
+  display: flex;
+  justify-content: center;
+  margin: var(--sp-6) 0 var(--sp-8);
+}
+.post .post-cover--avatar img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: var(--r-full);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
 .post .post-content {
   font-size: var(--fs-md);
   line-height: var(--lh-loose);
