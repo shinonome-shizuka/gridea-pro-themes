@@ -2250,7 +2250,7 @@ main.prose ul.links-list > li {
    Archives — 年份作为全宽分组标题 + 紧凑条目列表
    ================================================================ */
 .archives-page .archive-year {
-  margin-bottom: 4.5rem;
+  margin-bottom: 5.5rem;
 }
 .archives-page .archive-year:last-child { margin-bottom: 0; }
 
@@ -2258,8 +2258,8 @@ main.prose ul.links-list > li {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  padding-bottom: 0.9rem;
-  margin-bottom: 1rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.75rem;
   border-bottom: 1px solid var(--rule);
 }
 .archive-year__num {
@@ -2283,15 +2283,28 @@ main.prose ul.links-list > li {
   padding: 0;
   margin: 0;
 }
+.archive-year__list > .archive-post + .archive-post {
+  margin-top: 0.5rem;
+}
 .archive-post__link {
   display: grid;
   grid-template-columns: 4.5rem 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
   align-items: baseline;
-  padding: 1.1rem 0;
+  padding: 1.3rem 0;
   color: inherit;
   text-decoration: none;
-  transition: color 180ms var(--ease-out);
+  border-top: 1px solid var(--rule-soft);
+  transition: color 180ms var(--ease-out),
+              background 180ms var(--ease-out);
+  margin: 0 -0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 3px;
+}
+.archive-post:first-child .archive-post__link { border-top: 0; }
+.archive-post__link:hover {
+  background: color-mix(in srgb, currentColor 4%, transparent);
 }
 .archive-post__link time {
   font-family: var(--font-mono);
