@@ -8,18 +8,20 @@
         <h1>归档</h1>
     </header>
 
-    {% if posts|length > 0 %}
-        {% for group in posts|group_by:"year" %}
+    {% if archives|length > 0 %}
+        {% for archive in archives %}
             <article class="archive-year">
                 <div class="archive-year__marker">
-                    <span class="archive-year__num">{{ group.key }}</span>
-                    <span class="archive-year__count">{{ group.items|length }} POSTS</span>
+                    <span class="archive-year__num">{{ archive.Year }}</span>
+                    <span class="archive-year__count">{{ archive.Posts|length }} POSTS</span>
                 </div>
                 <ul class="archive-year__list not-prose">
-                    {% for post in group.items %}
+                    {% for post in archive.Posts %}
+                        {% set isoPart = post.date|split:"T" %}
+                        {% set dateParts = isoPart.0|split:"-" %}
                         <li class="archive-post">
                             <a class="archive-post__link" href="{{ post.link }}">
-                                <time datetime="{{ post.date }}">{{ post.dateFormat|default:post.date|truncatechars:10 }}</time>
+                                <time datetime="{{ post.date }}">{{ dateParts.1 }}-{{ dateParts.2 }}</time>
                                 <span class="archive-post__title">{{ post.title }}</span>
                             </a>
                         </li>
