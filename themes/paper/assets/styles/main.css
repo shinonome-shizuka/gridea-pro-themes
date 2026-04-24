@@ -1839,3 +1839,76 @@ article:not(#\#):not(#\#):not(#\#):not(#\#):not(#\#) .highlight > div table tr:l
     --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
   }
 }
+
+/* ============================================================
+   手机端保险补丁（Gridea Pro Jinja2 移植版附加）
+   说明：Paper 主题本身用 Tailwind utility 已基本响应式；
+   以下补丁仅针对移植过程中发现的几处小屏问题做保险性修复，
+   不覆盖 Tailwind 设计约定。
+   ============================================================ */
+
+@media (max-width: 640px) {
+  /* 顶栏 padding 收紧，左右 8px 可变 4px 给 logo 更多空间 */
+  header.mx-auto {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* 主内容 padding 保持对称但略小 */
+  main.prose {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+  }
+
+  /* 首页作者卡片：手机上头像略小、名字换行 */
+  main.prose .-mt-2.mb-12 > div:last-child {
+    min-width: 0;
+  }
+  main.prose .h-24.w-24 {
+    width: 4rem;
+    height: 4rem;
+    padding: 0.5rem;
+  }
+
+  /* 文章列表标题：长标题不压扁日期 */
+  section.relative h2 {
+    font-size: 1.25rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  /* 404 数字缩小 */
+  h1.text-9xl {
+    font-size: 5rem;
+  }
+
+  /* 页脚：允许换行，不然 "POWERED BY" 会挤出屏幕 */
+  footer.mx-auto {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* 归档条目：长标题换行 */
+  .relative.my-3 h3 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* 友链卡片之间间距稍紧一点 */
+  ul.grid-cols-1 {
+    gap: 0.75rem;
+  }
+}
+
+/* 移动端菜单展开时，让社交图标也可滚动，防止内容过高超出视口 */
+@media (max-width: 1023px) {
+  .nav-wrapper {
+    overflow-y: auto;
+  }
+}
