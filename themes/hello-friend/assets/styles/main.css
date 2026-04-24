@@ -1998,3 +1998,239 @@ hr {
 .btn-404 a {
   margin: 0 10px;
 }
+
+/* ============================================================
+   闪念 (memos) 页面
+   ============================================================ */
+.memos .memos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.memos .memo-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #4e4e57;
+}
+[data-theme=light] .memos .memo-item {
+  border-bottom-color: #dcdcdc;
+}
+.memos .memo-date {
+  display: block;
+  font-size: 0.8rem;
+  color: #b3b3bd;
+  margin-bottom: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+[data-theme=light] .memos .memo-date {
+  color: #999;
+}
+.memos .memo-content {
+  line-height: 1.7;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.memos .memo-content p {
+  margin: 0.4em 0;
+}
+.memos .memo-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 0.6em 0;
+}
+.memos .memo-tags {
+  margin-top: 0.75rem;
+}
+.memos .memo-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #b3b3bd;
+  margin-right: 0.5rem;
+}
+[data-theme=light] .memos .memo-tag {
+  color: #999;
+}
+
+/* ============================================================
+   友链 (friends) 页面
+   ============================================================ */
+.friends .friends-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.friends .friend-item {
+  margin: 0;
+}
+.friends .friend-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #4e4e57;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+[data-theme=light] .friends .friend-card {
+  border-color: #dcdcdc;
+}
+.friends .friend-card:hover {
+  transform: translateY(-2px);
+  border-color: #a9a9b3;
+}
+.friends .friend-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: #3b3d42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+}
+[data-theme=light] .friends .friend-avatar {
+  background: #eaeaea;
+  color: #222;
+}
+.friends .friend-info {
+  min-width: 0;
+  flex: 1;
+}
+.friends .friend-name {
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.friends .friend-desc {
+  font-size: 0.85rem;
+  color: #b3b3bd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-theme=light] .friends .friend-desc {
+  color: #999;
+}
+
+/* ============================================================
+   社交图标：小屏允许换行（原版无限 &nbsp; 分隔会压扁）
+   ============================================================ */
+.content-center .social-icons,
+.content-center main > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ============================================================
+   分享按钮：小屏网格排布，避免横向溢出
+   ============================================================ */
+.sharing-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ============================================================
+   手机端（<= 684px）整体修复
+   ============================================================ */
+@media (max-width: 684px) {
+  .content,
+  .content-center,
+  .posts,
+  .post,
+  .memos,
+  .friends {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* 列表项：标题超长时换行 + 日期占据自己一行 */
+  .posts-list .post-item-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .posts-list .post-title {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+  .posts-list .post-day {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  /* 文章详情元信息：SVG 行堆叠，图标和文字对齐 */
+  .post .post-info p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.4em 0;
+  }
+  .post .post-info svg {
+    flex-shrink: 0;
+  }
+
+  /* 首页个人卡：头像 / 标题 / 副标题 / 社交 垂直居中 */
+  .content-center h1 {
+    font-size: 1.8rem;
+    word-break: break-word;
+  }
+  .content-center .circle {
+    max-width: 130px !important;
+  }
+
+  /* 404 页：按钮堆叠 */
+  .btn-404 a {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.3rem 0.4rem;
+  }
+
+  /* 头部：logo 不换行但允许缩小 */
+  .header {
+    padding: 0 1rem;
+  }
+  .header__inner {
+    min-width: 0;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+
+  /* 友链：小屏强制单列 */
+  .friends .friends-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* 归档：年份 hanging 定位在手机上会贴左边，补充间距 */
+  .posts-group .post-year {
+    padding-left: 0;
+  }
+}
+
+/* ============================================================
+   主容器在小屏两侧留出呼吸空间
+   ============================================================ */
+@media (max-width: 900px) {
+  .content,
+  .content-center {
+    max-width: 100%;
+  }
+}
