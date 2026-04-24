@@ -2249,12 +2249,12 @@ main.prose ul.links-list > li {
 /* ================================================================
    Archives — 年份作为全宽分组标题 + 紧凑条目列表
    ================================================================ */
-.archives-page .archive-year {
+.archives-page .archive-year:not(#\#):not(#\#) {
   margin-bottom: 5.5rem;
 }
-.archives-page .archive-year:last-child { margin-bottom: 0; }
+.archives-page .archive-year:last-child:not(#\#):not(#\#) { margin-bottom: 0; }
 
-.archive-year__marker {
+.archive-year__marker:not(#\#):not(#\#) {
   display: flex;
   align-items: baseline;
   gap: 1rem;
@@ -2283,27 +2283,24 @@ main.prose ul.links-list > li {
   padding: 0;
   margin: 0;
 }
-.archive-year__list > .archive-post + .archive-post {
+.archive-year__list:not(#\#):not(#\#) > .archive-post + .archive-post {
   margin-top: 1rem;
 }
-.archive-post__link {
+.archive-post__link:not(#\#):not(#\#) {
   display: grid;
   grid-template-columns: 4.5rem 1fr;
   gap: 1.75rem;
   align-items: baseline;
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding: 1.75rem 0.75rem;
+  margin: 0 -0.75rem;
   color: inherit;
   text-decoration: none;
   border-top: 1px solid var(--rule-soft);
+  border-radius: 3px;
   transition: color 180ms var(--ease-out),
               background 180ms var(--ease-out);
-  margin: 0 -0.75rem;
-  border-radius: 3px;
 }
-.archive-post:first-child .archive-post__link { border-top: 0; }
+.archive-post:first-child .archive-post__link:not(#\#):not(#\#) { border-top: 0; }
 .archive-post__link:hover {
   background: color-mix(in srgb, currentColor 4%, transparent);
 }
@@ -2627,12 +2624,13 @@ main.prose ul.links-list > li {
   .page-header { margin-bottom: 2.25rem; }
   .page-header h1 { font-size: clamp(1.75rem, 5vw, 2.25rem); }
 
-  .archive-year__marker { gap: 0.75rem; }
+  .archive-year__marker:not(#\#):not(#\#) { gap: 0.75rem; padding-bottom: 0.8rem; margin-bottom: 1.25rem; }
   .archive-year__num { font-size: 1.6rem; }
-  .archive-post__link {
+  .archive-post__link:not(#\#):not(#\#) {
     grid-template-columns: 5rem 1fr;
     gap: 1rem;
-    padding: 0.6rem 0;
+    padding: 1.2rem 0.5rem;
+    margin: 0 -0.5rem;
   }
 
   .tag-pill__name { font-size: 0.85rem; padding-left: 0.75rem; }
